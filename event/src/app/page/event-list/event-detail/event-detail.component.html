@@ -1,0 +1,23 @@
+<div class="container mt-4" *ngIf="event">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">{{ event.title }}</h2>
+        <p class="card-text">{{ event.description }}</p>
+        <p class="card-text"><strong>Date:</strong> {{ event.date }}</p>
+        <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
+        <p class="card-text"><strong>Created By:</strong> {{ event.createdBy.username }}</p>
+        <h3>Participants</h3>
+        <ul class="list-group mb-3">
+          <li class="list-group-item" *ngFor="let participant of event.participants">{{ participant.username }}</li>
+        </ul>
+
+        <div *ngIf="event.createdBy._id==userId">
+            <button class="btn btn-warning" (click)="editEvent()">Edit</button>
+            <button class="btn btn-danger" (click)="deleteEvent()">Delete</button>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  

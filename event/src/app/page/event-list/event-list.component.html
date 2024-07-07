@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    
+    <button class="btn btn-primary m-3" routerLink="/create-event" routerLinkActive="active" >ADD EVENT</button>
+    <button class="btn btn-primary m-3" (click)="logout()" >LOG OUT</button>
+    <div *ngFor="let event of events" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ event.title }}</h5>
+        <p class="card-text">{{ event.description }}</p>
+        <p class="card-text"><strong>Date:</strong> {{ event.date }}</p>
+        <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
+        <p class="card-text"><strong>Created By:</strong> {{ event.createdBy.username }}</p>
+        <button class="btn btn-primary" (click)="registerForEvent(event._id)">Register</button>
+        <button class="btn btn-secondary" (click)="viewEventDetails(event._id)">View Details</button>
+      </div>
+    </div>
+  </div>
+  
